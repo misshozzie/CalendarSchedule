@@ -14,7 +14,7 @@ function Appointment({ appointment }) {
         <div className="card-body">
           <div className="d-flex flex-column justify-content-center">
             <span>
-              <i className="bi bi-phone-fill me-2"></i>
+              <i className="time"></i>
               {appointment.fields.Time}
             </span>
             <span>

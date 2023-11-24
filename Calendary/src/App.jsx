@@ -20,9 +20,9 @@ function App() {
   return (
   
     <div className="Home">
-      <h3 className="app-heading mb-5 mt-4 fw-bolder">
+      <h1 className="app-heading mb-5 mt-4 fw-bolder">
         Appointment record
-      </h3>
+      </h1>
       <div className="row">
         {appoinments.length > 0 ? (
           <>

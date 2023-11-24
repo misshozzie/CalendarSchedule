@@ -58,12 +58,18 @@ function AddAppointment() {
           >
             Time
           </label>
-          <input
-            type="text"
-            className="form-control"
-            id="exampleTitle"
-            ref={timeRef}
-          />
+          <label htmlFor="exampleTitle" className="form-label text-start d-block">
+        </label>
+        <select
+          className="form-control"
+          id="exampleTitle"
+          ref={timeRef}
+        >
+          <option value="AM">AM</option>
+          <option value="PM">PM</option>
+          <option value="OT">OT</option>
+          <option value="Full Day">Full Day</option>
+        </select>
         </div>
         <div className="mb-3">
           <label
@@ -86,13 +92,18 @@ function AddAppointment() {
             className="form-label text-start d-block"
           >
             Select
-          </label>
-          <input
-            type="text"
+            </label>
+            <select
             className="form-control"
             id="exampleselect"
             ref={selectRef}
-          />
+          >
+            <option value="">Select</option>
+            <option value="Aircon Servicing">Aircon Servicing</option>
+            <option value="Repair Works">Repair Works</option>
+            <option value="Site Projects">Site Projects</option>
+            <option value="Others">Others</option>
+          </select>
         </div>
         <div className="mb-3">
           <label
