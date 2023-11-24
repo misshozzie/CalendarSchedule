@@ -58,6 +58,8 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   overflow-x: hidden;
+  background-image: url('https://i.imgur.com/cm3rnfq.jpg');
+  background-size: cover;
 }
 
 code {
