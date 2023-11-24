@@ -105,7 +105,7 @@ function AddAppointment() {
             <option value="Others">Others</option>
           </select>
         </div>
-        <div className="mb-3">
+        <div className="mb-3" >
           <label
             htmlFor="exampleInputPassword1"
             className="form-label text-start d-block"
@@ -114,7 +114,8 @@ function AddAppointment() {
         <button
           type="submit"
           onClick={AddAppointment}
-          className="mt-4 btn btn-primary d-block"
+          className="mt-4 btn btn-danger d-block"
+
         >
           Add New Appointment
         </button>

@@ -14,12 +14,12 @@ import base from "../server/base.jsx";
     };
 
   return (
-    <div className="position-absolute">
+    <div className="right">
       <button
         onClick={removeAppointment}
         type="button"
-        className="btn btn-primary"
-      >
+        className="bi bi-trash"
+      > 
         <i className="bi bi-archive-fill"></i>
       </button>
     </div>

@@ -1,5 +1,5 @@
 @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css');
-
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css');
 *,
 *::before,
 *::after {
@@ -37,9 +37,6 @@ h4 {
   display: flex;
 }
 
-button {
-  justify-content: left;
-}
 /* Set core root defaults */
 html {
   scroll-behavior: smooth;
