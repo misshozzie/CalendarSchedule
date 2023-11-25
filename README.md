@@ -12,7 +12,7 @@ project two unit
 
 ## Tech Stack
 
-**Client:** VsCode, Json, Reactjs, CSS, HTML, Airtable, Vercel
+**Client:** Js, Json, Reactjs, CSS, HTML, Styled-Components, 
 
 
 

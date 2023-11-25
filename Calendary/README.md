@@ -12,13 +12,13 @@ project two unit
 
 ## Tech Stack
 
-**Client:** VsCode, Json, Reactjs, CSS, HTML, Airtable, Vercel
+**Client:** Js, Json, Reactjs, CSS, HTML, Boostraps, 
 
 
 
 ## Demo
 
-https://calendary-fvi8q9t90-hosannas-projects.vercel.app/
+https://calendary-lovat.vercel.app 
 
 
 ## Features
