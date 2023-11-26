@@ -1,7 +1,7 @@
 import Airtable from 'airtable';
 
 // api keys are confidential
-const base = new Airtable({ apiKey: 'pat4Rf1s2QfBrJ2aE.9076d6c8d2712e4f28eb6f21e8278465e2d7af6c86bf3715793c4319120ddb62' }).base(
+const base = new Airtable({ apiKey: 'pat4Rf1s2QfBrJ2aE.7590d395798a87b333ddd5d7deb553fab50fc58144c8b23a571c00fa88fec7d7' }).base(
   'appgXtQByGQw5vxnL'
 );
 

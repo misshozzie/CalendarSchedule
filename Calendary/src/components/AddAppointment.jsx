@@ -13,11 +13,6 @@ function AddAppointment() {
     const Time = timeRef.current.value;
     const Date = dateRef.current.value;
     const Select = selectRef.current.value;
-    // Input validation
-   // if (!Name || !Time || !Date || !Select) {
-    //  alert('Please fill in all fields');
-    //  return;
-    //}6
 
     base('calendarBooking').create(
       { Name, Time, Date, Select },
@@ -114,7 +109,7 @@ function AddAppointment() {
         <button
           type="submit"
           onClick={AddAppointment}
-          className="mt-4 btn btn-danger d-block"
+          className="btn btn-outline-warning"
 
         >
           Add New Appointment

@@ -18,11 +18,11 @@ function Appointment({ appointment }) {
               {appointment.fields.Time}
             </span>
             <span>
-              <i className="bi bi-envelope-fill me-2"></i>
+              <i className="bi bi-calendar-check-fill "></i>
               {appointment.fields.Date}
             </span>
           </div>
-          <p className="card-text">Started: {appointment.fields.Select}</p>
+          <p className="card-text">Services: {appointment.fields.Select}</p>
         </div>
       </div>
     </div>
