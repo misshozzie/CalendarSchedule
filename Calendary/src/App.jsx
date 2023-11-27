@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     async function fetchHolidays() {
-      const response = await fetch("https://date.nager.at/api/v3/publicholidays/2023/SG");
+      const response = await fetch("https://date.nager.at/api/v3/publicholidays/2023/GR");
       
       //console.log("response", response);
 
@@ -36,39 +36,30 @@ function App() {
 
   useEffect(() => {
     async function updateAirtableWithHolidays() {
-      // Batch the `holidays` into chunks of 10
-      const BATCH_SIZE = 10;
-      const holidayBatches = [];
-      for (let i = 0; i < holidays.length; i += BATCH_SIZE) {
-        holidayBatches.push(holidays.slice(i, i + BATCH_SIZE));
-      }
-      // Run through the batches and submit them as separate requests
-      for (const batch of holidayBatches) {
-        const recordsToCreate = batch.map((holiday) => ({
+      // Ensure that only new holidays are batch-updated to prevent duplicates
+      const existingHolidayDates = new Set(appoinments.map(appointment => appointment.fields.Date));
+      const newHolidays = holidays.filter(holiday => !existingHolidayDates.has(holiday.date));
+      if (newHolidays.length > 0) {
+        const recordsToCreate = newHolidays.slice(0, 10).map(holiday => ({
           fields: {
             'Date': holiday.date,
             'Name': holiday.localName
           }
         }));
-        if (recordsToCreate.length > 0) {
-          // Use `await` to wait for one request to finish before starting the next
-          // Catch errors using `.catch` on the Promise
-          await base('calendarBooking').create(recordsToCreate)
-            .catch(error => console.error("Error updating Airtable with holidays:", error));
-        }
+        await base('calendarBooking').update(recordsToCreate)
+          .catch(error => console.error("Error updating Airtable with holidays:", error));
       }
     }
     if (holidays.length > 0) {
       updateAirtableWithHolidays();
     }
-  }, [holidays]); // Depend on holidays state
-  // ... rest of the code ...
+  }, [holidays, appoinments]); // Depend on holidays and appointments state
   
   return (
     <Router>
       <div className="Home">
         <h1 className="app-heading mb-5 mt-4 fw-bolder">
-          Appointment record
+          APPOINTMENT RECORD
         </h1>
         <div className="row">
           {appoinments.length > 0 ? (
