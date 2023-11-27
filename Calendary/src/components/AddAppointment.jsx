@@ -21,7 +21,7 @@ function AddAppointment() {
           console.error(err);
           return;
         }
-        // Consider using a different UI element or feedback mechanism
+// Consider using a different UI element or feedback mechanism
         alert(`Appointment added with ID: ${record.getId()}`);
       }
     );

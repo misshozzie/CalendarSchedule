@@ -1,7 +1,7 @@
 import React from 'react';
 import base from "../server/base.jsx";
 
-
+// to delete the data
   function RemoveAppointment({ appointmentID  }) {
     const removeAppointment = () => {
       base('calendarBooking').destroy(appointmentID, function (err, removeAppointment) {

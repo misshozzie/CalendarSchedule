@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Airtable from 'airtable';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Appointment from './components/Appointment';
 import AddAppointment from "./components/AddAppointment";
@@ -10,13 +9,11 @@ function App() {
   const [appoinments, setAppointments] = useState([]);
   const [holidays, setHolidays] = useState([]);
 
-
+// fetching API Holiday
   useEffect(() => {
     async function fetchHolidays() {
       const response = await fetch("https://date.nager.at/api/v3/publicholidays/2023/SG");
-      
-      //console.log("response", response);
-
+    
       const jsonData = await response.json();
       console.log(jsonData);
       setHolidays(jsonData);
@@ -24,7 +21,7 @@ function App() {
     fetchHolidays();
   }, []);
 
-
+//Airtable data display
   useEffect(() => {
     base('calendarBooking')
       .select({ view: 'Grid view' })
@@ -34,13 +31,14 @@ function App() {
       });
   }, []);
 
+//PATCH. Sync the Airtable
   useEffect(() => {
     async function updateAirtableWithHolidays() {
       // Ensure that only new holidays are batch-updated to prevent duplicates
       const existingHolidayDates = new Set(appoinments.map(appointment => appointment.fields.Date));
       const newHolidays = holidays.filter(holiday => !existingHolidayDates.has(holiday.date));
       if (newHolidays.length > 0) {
-        const recordsToCreate = newHolidays.slice(0, 10).map(holiday => ({
+        const recordsToCreate = newHolidays.slice(0, 10).map(holiday => ({ //maximum 10 arrays to record
           fields: {
             'Date': holiday.date,
             'Name': holiday.localName
@@ -53,8 +51,9 @@ function App() {
     if (holidays.length > 0) {
       updateAirtableWithHolidays();
     }
-  }, [holidays, appoinments]); // Depend on holidays and appointments state
+  }, [holidays, appoinments]);
   
+
   return (
     <Router>
       <div className="Home">
