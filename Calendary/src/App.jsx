@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     async function fetchHolidays() {
-      const response = await fetch("https://date.nager.at/api/v3/publicholidays/2023/GR");
+      const response = await fetch("https://date.nager.at/api/v3/publicholidays/2023/SG");
       
       //console.log("response", response);
 
