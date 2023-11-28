@@ -1,11 +1,13 @@
 import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import base from '../server/base';
 
-function AddAppointment() {
+export function AddAppointment() {
   const nameRef = useRef();
   const timeRef = useRef();
   const dateRef = useRef();
   const selectRef = useRef();
+  const navigate = useNavigate();
 
   const AddAppointment = (e) => {
     e.preventDefault();
@@ -22,7 +24,8 @@ function AddAppointment() {
           return;
         }
 // Consider using a different UI element or feedback mechanism
-        alert(`Appointment added with ID: ${record.getId()}`);
+        //alert(`Appointment added with ID: ${record.getId()}`);
+        navigate('/thank-you');
       }
     );
   };
@@ -68,7 +71,7 @@ function AddAppointment() {
         </div>
         <div className="mb-3">
           <label
-            htmlFor="exampleInputEmail1"
+            htmlFor="exampleInput"
             className="form-label text-start d-block"
           >
             Date
@@ -76,8 +79,8 @@ function AddAppointment() {
           <input
             type="date"
             className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
+            id="exampleInputDate"
+            aria-describedby="textinputOnly"
             ref={dateRef}
           />
         </div>
@@ -102,16 +105,14 @@ function AddAppointment() {
         </div>
         <div className="mb-3" >
           <label
-            htmlFor="exampleInputPassword1"
+            htmlFor="exampleInput2"
             className="form-label text-start d-block"
           />
         </div>
-        <button
-          type="submit"
-          onClick={AddAppointment}
-          className="btn btn-outline-warning"
-
-        >
+        <button 
+        type="submit" 
+        onClick={AddAppointment}
+        className="btn btn-outline-warning">
           Add New Appointment
         </button>
       </form>
