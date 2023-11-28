@@ -5,7 +5,7 @@ function ThankYou() {
     <div>
       <h1>Thank You</h1>
       <p>Your appointment has been added successfully.</p>
-      <Link to="/add-appointment">Back to Appointments</Link>
+      <Link to="/">Back to Appointments</Link>
     </div>
   );
 }

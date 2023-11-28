@@ -90,33 +90,55 @@ function App() {
   //   );
   // })
 
+// Callback function to handle the addition of a new appointment
+
+const handleAppointmentAdded = (newAppointment) => {
+  setAppointments([...appointments, newAppointment]);
+};
+
 
   return (
     <Router>
       <div className="Home">
-        <h1 className="app-heading mb-5 mt-4 fw-bolder">APPOINTMENT RECORD</h1>
-        <div className="row">
-          {appointments.length > 0 ? (
-            <>
-              {appointments?.map((e) => (
-                <Appointment key={e.id} appointment={e} />
-                
-              ))}
-            </>
-          ) : (
-            <div className="spinner-border mx-auto text-primary" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </div>
-          )}
-        </div>
-        <div>
-        <Link to="/thank-you"></Link>
-        </div>
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <>
+                <h1 className="app-heading mb-5 mt-4 fw-bolder">
+                  APPOINTMENT RECORD
+                </h1>
+                <Link to="/add-appointment" className="btn btn-primary">Add New Appointment</Link>
+                <div className="row">
+                  {appointments.length > 0 ? (
+                    appointments.map((appointment) => (
+                      <Appointment
+                        key={appointment.id}
+                        appointment={appointment}
+                      />
+                    ))
+                  ) : (
+                    <div
+                      className="spinner-border mx-auto text-primary"
+                      role="status"
+                    >
+                      <span className="visually-hidden">Loading...</span>
+                    </div>
+                  )}
+                </div>
+              </>
+              
+            }
+          />
+          <Route path="/add-appointment" element={<AddAppointment />} />
+          <Route path="/thank-you" element={<ThankYou />} />
+          <Route
+            path="*"
+            element={<div>Page not found. Check if the URL is correct.</div>}
+          />
+        </Routes>
       </div>
-      <Routes>
-        <Route path="/add-appointment" element={<AddAppointment />} />
-        <Route path="/thank-you" element={<ThankYou />} />
-      </Routes>
     </Router>
   );
 }

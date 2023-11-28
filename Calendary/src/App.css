@@ -33,6 +33,14 @@ h1 {
 text-align: center;
 }
 
+.btn.btn-primary {
+  display: block;
+  margin: auto;
+  margin-top: 10%; /* You can adjust this value to center it vertically */
+  transform: translateY(-50%);
+}
+
+
 h4 {
   display: flex;
 }

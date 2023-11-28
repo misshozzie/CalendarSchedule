@@ -2,15 +2,15 @@ import React from 'react';
 import base from "../server/base.jsx";
 
 // to delete the data
-  function RemoveAppointment({ appointmentID  }) {
+  function RemoveAppointment({ appointmentID, onAppointmentRemoved   }) {
     const removeAppointment = () => {
-      base('calendarBooking').destroy(appointmentID, function (err, removeAppointment) {
+      base('calendarBooking').destroy(appointmentID, function (err, deletedRecord) {
         if (err) {
           console.error(err);
           return;
         }
-        //prompt('Deleted record', removeAppointment.id);
-        //onAppointmentRemoved(appointmentID);
+        onAppointmentRemoved(appointmentID);
+        window.location.reload();
       });
     };
 
