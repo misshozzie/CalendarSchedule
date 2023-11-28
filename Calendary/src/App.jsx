@@ -90,6 +90,7 @@ function App() {
   //   );
   // })
 
+
   return (
     <Router>
       <div className="Home">
@@ -99,6 +100,7 @@ function App() {
             <>
               {appointments?.map((e) => (
                 <Appointment key={e.id} appointment={e} />
+                
               ))}
             </>
           ) : (

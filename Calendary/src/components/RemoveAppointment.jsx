@@ -9,7 +9,8 @@ import base from "../server/base.jsx";
           console.error(err);
           return;
         }
-        prompt('Deleted record', removeAppointment.id);
+        //prompt('Deleted record', removeAppointment.id);
+        //onAppointmentRemoved(appointmentID);
       });
     };
 
