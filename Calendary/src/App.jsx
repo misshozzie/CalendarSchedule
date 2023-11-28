@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Link, Route } from "react-router-dom";
 import Appointment from "./components/Appointment.jsx";
 import AddAppointment from "./components/AddAppointment.jsx";
 import ThankYou from "./components/ThankYou.jsx";
@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     async function fetchHolidays() {
       const response = await fetch(
-        "https://date.nager.at/api/v3/PublicHolidays/2023/SG"
+        "https://date.nager.at/api/v3/publicholidays/2023/SG"
       );
 
       const jsonData = await response.json();
@@ -91,11 +91,9 @@ function App() {
   // })
 
   return (
-<Router>
+    <Router>
       <div className="Home">
-        <h1 className="app-heading mb-5 mt-4 fw-bolder">
-          APPOINTMENT RECORD
-        </h1>
+        <h1 className="app-heading mb-5 mt-4 fw-bolder">APPOINTMENT RECORD</h1>
         <div className="row">
           {appointments.length > 0 ? (
             <>
@@ -110,6 +108,7 @@ function App() {
           )}
         </div>
         <div>
+        <Link to="/thank-you"></Link>
         </div>
       </div>
       <Routes>
@@ -117,7 +116,7 @@ function App() {
         <Route path="/thank-you" element={<ThankYou />} />
       </Routes>
     </Router>
- );
+  );
 }
 
 export default App;
