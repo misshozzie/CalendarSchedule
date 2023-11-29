@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import base from "../server/base";
 
-export function AddAppointment() {
+export function AddAppointment({ onAppointmentAdded }) {
  //export  const AddAppointment = ({ onAppointmentAdded }) => {
   const nameRef = useRef();
   const timeRef = useRef();
@@ -25,6 +25,12 @@ export function AddAppointment() {
           console.error(err);
           return;
         }
+        if (onAppointmentAdded) {
+          onAppointmentAdded({ 
+            id: record.getId(), 
+            fields: { Name, Time, Date, Select }
+          });
+        }
         // Consider using a different UI element next time or feedback mechanism
         //alert(`Appointment added with ID: ${record.getId()}`);
        navigate("/thank-you");
@@ -33,7 +39,7 @@ export function AddAppointment() {
   };
 
 
-  
+
   return (
     <div className="mt-5 card p-5 form-add">
       <h4 className="mb-5">Add Appointment</h4>
@@ -52,7 +58,7 @@ export function AddAppointment() {
         </div>
         <div className="mb-3">
           <label
-            htmlFor="exampleInputPassword1"
+            htmlFor="exampleInput1"
             className="form-label text-start d-block"
           >
             Time
@@ -70,7 +76,7 @@ export function AddAppointment() {
         </div>
         <div className="mb-3">
           <label
-            htmlFor="exampleInput"
+            htmlFor="exampleInput2"
             className="form-label text-start d-block"
           >
             Date
@@ -85,7 +91,7 @@ export function AddAppointment() {
         </div>
         <div className="mb-3">
           <label
-            htmlFor="exampleInputPassword1"
+            htmlFor="exampleInput"
             className="form-label text-start d-block"
           >
             Select

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Link, Route } from "react-router-dom";
 import Appointment from "./components/Appointment.jsx";
 import AddAppointment from "./components/AddAppointment.jsx";
+import Calendar from "./components/Calendar.jsx";
 import ThankYou from "./components/ThankYou.jsx";
 import "./App.css";
 import base from "./server/base.jsx";
@@ -64,38 +65,11 @@ function App() {
     }
   }, [holidays, appointments]);
 
-  //     <Router>
-  //       <div className="Home">
-  //         <h1 className="app-heading mb-5 mt-4 fw-bolder">
-  //           APPOINTMENT RECORD
-  //         </h1>
-  //         <div className="row">
-  //           {appoinments.length > 0 ? (
-  //             <>
-  //               {appoinments?.map((e) => (
-  //                 <Appointment key={e.id} appointment={e} />
-  //               ))}
-  //             </>
-  //           ) : (
-  //             <div className="spinner-border mx-auto text-primary" role="status">
-  //               <span className="visually-hidden">Loading...</span>
-  //             </div>
-  //           )}
-  //         </div>
-  //         <div>
-  //           <AddAppointment />
-  //         </div>
-  //       </div>
-  //     </Router>
-  //   );
-  // })
-
-// Callback function to handle the addition of a new appointment
-
-const handleAppointmentAdded = (newAppointment) => {
-  setAppointments([...appointments, newAppointment]);
-};
-
+  // Callback function to handle the addition of a new appointment
+  const handleAppointmentAdded = (newAppointment) => {
+    setAppointments([...appointments, newAppointment]);
+  };
+  
 
   return (
     <Router>
@@ -109,7 +83,9 @@ const handleAppointmentAdded = (newAppointment) => {
                 <h1 className="app-heading mb-5 mt-4 fw-bolder">
                   APPOINTMENT RECORD
                 </h1>
-                <Link to="/add-appointment" className="btn btn-primary">Add New Appointment</Link>
+                <Link to="/add-appointment" className="btn btn-primary">
+                  Add New Appointment
+                </Link>
                 <div className="row">
                   {appointments.length > 0 ? (
                     appointments.map((appointment) => (
@@ -127,11 +103,11 @@ const handleAppointmentAdded = (newAppointment) => {
                     </div>
                   )}
                 </div>
+                <Calendar appointments={appointments} holidays={holidays} />
               </>
-              
             }
           />
-          <Route path="/add-appointment" element={<AddAppointment />} />
+          <Route path="/add-appointment" element={<AddAppointment onAppointmentAdded={handleAppointmentAdded} />} />
           <Route path="/thank-you" element={<ThankYou />} />
           <Route
             path="*"

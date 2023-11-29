@@ -1,18 +1,23 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import base from "../server/base.jsx";
 
 // to delete the data
-  function RemoveAppointment({ appointmentID, onAppointmentRemoved   }) {
-    const removeAppointment = () => {
-      base('calendarBooking').destroy(appointmentID, function (err, deletedRecord) {
-        if (err) {
-          console.error(err);
-          return;
-        }
+function RemoveAppointment({ appointmentID, onAppointmentRemoved   }) {
+  const removeAppointment = () => {
+    base('calendarBooking').destroy(appointmentID, function (err, deletedRecord) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+
+      console.log('Deleted record:', deletedRecord);
+
+      if (onAppointmentRemoved) {
         onAppointmentRemoved(appointmentID);
-        window.location.reload();
-      });
-    };
+      }
+    });
+  };
 
   return (
     <div className="right">
