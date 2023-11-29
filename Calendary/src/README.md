@@ -26,12 +26,13 @@ By utilizing these features, the Unit 2 project effectively creates a simple, ye
 
 ## Screenshots
 
-![App Screenshot](https://i.imgur.com/Rwne54L.png)
-![App Screenshot](https://i.imgur.com/dMKLSlf.png)
+![App Screenshot](https://i.imgur.com/lxOwMQe.png)
+![App Screenshot](https://i.imgur.com/7srgvVk.png)
+![App Screenshot](https://i.imgur.com/Q91oqoB.png)
 
 ## Tech Stack
 
-**Client:**  Json, Reactjs, CSS, HTML, Airtable, Vercel
+**Client:**  Json, Reactjs, CSS, HTML, Airtable, Vercel, ants Design UI
 
 
 
@@ -75,7 +76,7 @@ The most significant challenge during this project was managing my time effectiv
 The key to successful learning in this hectic schedule is effective time management. I would love to Prioritize self-study and dividing my time efficiently so I be abled to balance my responsibilities effectively.
 
 #### Focus on JavaScript Mastery
-A major goal for me was to become proficient in JavaScript. Understanding its intricacies and enhancing my coding skills became a priority, contributing significantly to my growth as a developer.
+A major goal for me was to become proficient in JavaScript(as of this pace). Understanding its intricacies and enhancing my coding skills became a priority, contributing significantly to my growth as a developer.
 
 #### Balancing Design and Coding
 Recognizing the importance of finding a balance between design and coding was another crucial takeaway. While design is essential, it's equally important not to spend excessive time on it and maintain a strong focus on coding tasks to ensure project progression.
@@ -106,3 +107,10 @@ Recognizing the importance of finding a balance between design and coding was an
   }, [])
 ```
 
+
+## Latest Update
+
+#### As of November 11, 2023
+Calendar view is already available. Read-only. It fetched all the data available.
+Adding newly event will automatedly displayed.
+New page route to directly to a appointment form.
